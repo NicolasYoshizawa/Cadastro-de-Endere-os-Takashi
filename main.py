@@ -4,8 +4,7 @@ from functions import Functions
 from toplevel1 import Toplevel1
 from toplevel2 import Toplevel2
 
-    
-
+     
 class Application(Functions):
     def __init__(self):
         self.window = Tk()
