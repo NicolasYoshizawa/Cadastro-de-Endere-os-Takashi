@@ -300,7 +300,7 @@ Obs: Casas decimais devem ser representadas com ponto"""
                     self.clear_display_toplevel1()
         except:
             msg = """Digite um valor válido!
-Obs: Casas decimais devem ser representador com ponto"""
+Obs: Casas decimais devem ser representadas com ponto"""
             messagebox.showinfo('Cadastro de Endereço - Aviso!!', msg)
             self.clear_display_toplevel1()
         
@@ -366,7 +366,7 @@ Obs: Casas decimais devem ser representador com ponto"""
                         self.clear_display_toplevel2()
         except:
             msg = """Digite um valor válido!
-Obs: Casas decimais devem ser representador com ponto"""
+Obs: Casas decimais devem ser representadas com ponto"""
             messagebox.showinfo('Cadastro de Preço - Aviso!!', msg)
             self.clear_display_toplevel2()
             
