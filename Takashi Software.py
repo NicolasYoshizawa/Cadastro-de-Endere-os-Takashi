@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter.font import Font
-from functions import Functions
-from toplevel1 import Toplevel1
-from toplevel2 import Toplevel2
+from Factory.functions import Functions
+from TopLevel.toplevel1 import Toplevel1
+from TopLevel.toplevel2 import Toplevel2
 
      
 class Application(Functions):
