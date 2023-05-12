@@ -291,13 +291,22 @@ Obs: Casas decimais devem ser representadas com ponto"""
                     self.clear_display_toplevel1()
                 else:
                     self.connect_database('endereco.db')
-
-                    self.cursor.execute(""" UPDATE endereco SET address = ?, delivery_fee = ?
-                                        Where cod = ?""", (self.nome_endereco, self.taxa_entrega, self.codigo))
-                    self.connect.commit()
+                    
+                    self.cursor.execute(f""" SELECT * FROM endereco WHERE address = '{self.nome_endereco}'""")
+                    query = self.cursor.fetchall()
                     self.disconnect_database()
-                    self.select_list_address()
-                    self.clear_display_toplevel1()
+                    if query == []:
+                        self.connect_database('endereco.db')
+                        self.cursor.execute(""" UPDATE endereco SET address = ?, delivery_fee = ?
+                                            Where cod = ?""", (self.nome_endereco, self.taxa_entrega, self.codigo))
+                        self.connect.commit()
+                        self.disconnect_database()
+                        self.select_list_address()
+                        self.clear_display_toplevel1()
+                    else:
+                        msg = """Um endereço com esse nome já existe!"""
+                        messagebox.showinfo('Cadastro de Endereço - Aviso!!', msg)
+                        self.clear_display_toplevel1()
         except:
             msg = """Digite um valor válido!
 Obs: Casas decimais devem ser representadas com ponto"""
