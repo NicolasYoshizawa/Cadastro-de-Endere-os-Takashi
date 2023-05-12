@@ -251,7 +251,7 @@ Obs: Casas decimais serão ignoradas"""
                 messagebox.showinfo('Cadastro de Endereço - Aviso!!', msg)
         except:
             msg = """Digite um valor válido!
-Obs: Casas decimais devem ser representador com ponto"""
+Obs: Casas decimais devem ser representadas com ponto"""
             messagebox.showinfo('Cadastro de Endereço - Aviso!!', msg)
             self.clear_display_toplevel1()
             
