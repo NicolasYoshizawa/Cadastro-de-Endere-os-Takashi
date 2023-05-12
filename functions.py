@@ -78,7 +78,7 @@ class Functions:
         self.scrollbar = Scrollbar(self.window, orient='vertical')
         
     def connect_database(self, database):
-        self.connect = sqlite3.connect(database)
+        self.connect = sqlite3.connect('./databases/' + database)
         self.cursor = self.connect.cursor()
         print('Connecting to database')    
         
