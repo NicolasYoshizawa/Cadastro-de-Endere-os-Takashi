@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
+import os
 import sqlite3
 
 
@@ -78,9 +79,12 @@ class Functions:
         self.scrollbar = Scrollbar(self.window, orient='vertical')
         
     def connect_database(self, database):
-        self.connect = sqlite3.connect('./databases/' + database)
+        appdata_path = os.getenv('APPDATA')
+        new_folder_path = os.path.join(appdata_path, 'Takashi Software')
+        os.makedirs(new_folder_path, exist_ok=True)
+        self.connect = sqlite3.connect(new_folder_path + '/' + database)
         self.cursor = self.connect.cursor()
-        print('Connecting to database')    
+        print('Connecting to database')
         
     def disconnect_database(self):
         self.cursor.close()
@@ -383,5 +387,4 @@ Obs: Casas decimais devem ser representadas com ponto"""
             self.disconnect_database()
             self.select_list_prices()
             self.clear_display_toplevel2()
-            
             
